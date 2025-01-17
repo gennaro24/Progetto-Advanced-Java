@@ -1,0 +1,24 @@
+@startuml
+:User: as User
+(Launch Application) as launch
+(Starting Setup) as startSetup
+(Input a word) as input
+
+rectangle Directory{
+(add document) as add
+(sort document) as sort
+(check for changes) as check
+(write directory state) as write
+(read directory state) as read
+}
+
+
+
+
+User-->launch
+launch-->startSetup : <<include>>
+startSetup-->Directory : <<include>>
+startSetup-->Directory : <<include>>
+startSetup-->input : <<include>>
+
+@enduml

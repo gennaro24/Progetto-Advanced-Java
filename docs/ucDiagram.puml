@@ -1,0 +1,17 @@
+@startuml
+actor user
+rectangle tool{
+    (sceglie una directory) as dir
+    (indicizza i documenti) as index
+    (inserisci query) as query
+    (mostra risultati) as result
+    (nessun risultato) as noRes
+}
+user --> dir
+dir --> index
+index --> query
+query --> result
+noRes --> result : <<extend>>
+result --> dir
+user --> query
+@enduml

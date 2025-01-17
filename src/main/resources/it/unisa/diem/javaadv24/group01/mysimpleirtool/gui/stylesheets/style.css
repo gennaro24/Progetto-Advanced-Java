@@ -1,0 +1,13 @@
+.progress-bar {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 15;
+    -fx-padding: 5;
+    -fx-border-width: 2; /* Spessore del bordo */
+    -fx-border-radius: 25; /* Arrotondamento del bordo */
+}
+
+.progress-bar .bar {
+    -fx-background-color: rgb(51, 204, 204); /* Colore della barra di progresso */
+    -fx-background-radius: 15; /* Arrotondamento della barra di progresso */
+}

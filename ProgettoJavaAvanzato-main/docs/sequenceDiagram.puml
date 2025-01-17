@@ -1,0 +1,14 @@
+@startuml
+actor user
+participant tool
+
+user -> tool: scegli una directory
+tool --> user: indicizza file
+user -> tool: inserisci una query
+alt query valida
+    tool --> user: mostra risultati
+else query non valida
+     tool --> user: no results
+end
+user -> tool: scegli una directory
+@enduml

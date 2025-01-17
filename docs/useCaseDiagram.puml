@@ -1,0 +1,39 @@
+@startuml
+:User: as User
+(Launch Application) as launch
+(Starting Setup) as startSetup
+(Input a word) as input
+(None Documents condition) as docex
+(output score) as out
+
+
+
+rectangle Directory{
+(add document) as add
+(sort document) as sort
+(check for changes) as check
+(write directory state) as write
+(read directory state) as read
+}
+rectangle Document{
+(Get File content) as getfile
+(Parsing File content) as parse
+(Calculate Score) as calc
+}
+
+
+
+
+User-->launch
+launch->startSetup : <<include>>
+startSetup->Directory : <<include>>
+startSetup->Directory : <<include>>
+startSetup->input : <<include>>
+input->Directory : <<include>>
+input->Document : <<include>>
+docex-->Document : <<include>>
+docex-->Directory : <<include>>
+Directory--->out : <<include>>
+Document--->out : <<include>>
+
+@enduml

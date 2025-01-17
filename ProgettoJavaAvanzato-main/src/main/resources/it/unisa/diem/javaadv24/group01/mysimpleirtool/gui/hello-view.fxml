@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unisa.diem.javaadv24.group01.mysimpleirtool.gui.HelloController">
+   <children>
+      <VBox fx:id="vbox3" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: FFFFFF;" visible="false">
+         <children>
+            <TextField fx:id="textFieldSearch" minHeight="-Infinity" minWidth="-Infinity" onAction="#switchToList" prefHeight="46.0" prefWidth="780.0" promptText="Inserisci il termine da ricercare..." style="-fx-background-radius: 25;">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.11">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TextField>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets left="300.0" right="300.0" top="80.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@assets/iconaPaginaRicerca.png" />
+               </image>
+            </ImageView>
+            <Label text="Inizia la ricerca!" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Inserisci un termine nella barra in alto!">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="goToViewButt" mnemonicParsing="false" onAction="#switchToList" style="-fx-background-color: rgb(201, 220, 244); -fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 20;" text="Vai alla lista!">
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="changeDirectoryButton" mnemonicParsing="false" onAction="#changeDirectory" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: rgb(244, 201, 201); -fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 20;" text="Cambia directory">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <VBox fx:id="vbox5" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: FFFFFF;" visible="false">
+         <children>
+            <TextField fx:id="textFieldSearch2" minHeight="-Infinity" minWidth="-Infinity" onAction="#switchToList2" prefHeight="46.0" prefWidth="780.0" promptText="Parola" style="-fx-background-radius: 25;">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.11">
+                     <bumpInput>
+                        <Shadow>
+                           <color>
+                              <Color red="0.75789475440979" green="0.2582456171512604" blue="0.2582456171512604" />
+                           </color>
+                        </Shadow>
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </TextField>
+            <HBox prefHeight="58.0" prefWidth="801.0">
+               <children>
+                  <Label text="Visualizzazione risultati per: ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="20.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Text fx:id="textQuery2" fill="#201776" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="400.40514373779297">
+                     <HBox.margin>
+                        <Insets bottom="15.0" left="2.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <VBox prefHeight="56.0" prefWidth="134.0" translateX="8.0">
+                     <children>
+                        <Button fx:id="buttonSearch" mnemonicParsing="false" onAction="#switchToList2" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: rgb(201, 220, 244); -fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 20;" text="Ricerca nuova parola">
+                           <VBox.margin>
+                              <Insets top="2.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="changeDirectoryButton2" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#changeDirectory" prefHeight="27.0" prefWidth="134.0" style="-fx-background-color: rgb(244, 201, 201); -fx-background-radius: 20; -fx-border-color: grey; -fx-border-radius: 20;" text="Cambia directory">
+                           <VBox.margin>
+                              <Insets bottom="2.0" top="2.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+            <TableView prefHeight="472.0" prefWidth="801.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn prefWidth="383.19999998807907" text="Nome file" />
+                <TableColumn prefWidth="416.0" text="Numero di parole" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox fx:id="vbox4" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: FFFFFF;" visible="false">
+         <children>
+            <TextField minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="780.0" promptText="Parola" style="-fx-background-radius: 25;" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.11">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </TextField>
+            <HBox prefHeight="58.0" prefWidth="801.0">
+               <children>
+                  <Label text="Visualizzazione risultati per: ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" top="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Text fx:id="textQuery" fill="#201776" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="2.0" top="15.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="41.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@assets/noFileFoundIcon.png" />
+               </image>
+            </ImageView>
+            <Label text="Nessun file trovato!">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox fx:id="vbox1" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: FFFFFF;" visible="false">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="180.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@assets/file.gif" />
+               </image>
+            </ImageView>
+            <Label text="Iniziamo! Seleziona una directory:">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="directoryButton" mnemonicParsing="false" onAction="#handleSelectFolder" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: rgba(78, 78, 78, 1); -fx-background-radius: 10;" text="Scegli cartella" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <VBox fx:id="vbox2" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: FFFFFF;">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="200.0" />
+               </VBox.margin>
+               <image>
+                  <Image url="@assets/document.gif" />
+               </image>
+            </ImageView>
+            <Label text="Attendi mentre avviene la magia...">
+               <VBox.margin>
+                  <Insets bottom="30.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" stylesheets="@stylesheets/style.css" />
+         </children>
+      </VBox>
+   </children>
+</StackPane>

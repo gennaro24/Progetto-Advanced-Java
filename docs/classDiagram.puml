@@ -1,0 +1,102 @@
+@startuml
+package main {
+    package java {
+        package it {
+            package unisa {
+                package diem {
+                    package javaadv24 {
+                        package group01 {
+                            package mysimpleirtool {
+                                package components {
+                                    class Directory {
+                                        -directory: HashSet<Document>
+                                        -path: String
+                                        -vocabulary: Vocabulary
+                                        +Directory(String path)
+                                        -directoryInitializer(): HashSet<Document>
+                                        +directoryUpdater(): void
+                                        +{static} readIndexingStatus(String path): Directory
+                                        +writeIndexingStatus(): void
+                                    }
+                                    class Document {
+                                        -hash: String
+                                        -fileObject: File
+                                        -filename: String
+                                        +Document(File file, Stream<String> stopwords)
+                                        +getFileName(): String
+                                        +getHash(): String
+                                        +setHash(String hash): void
+                                        -getFileContent(): Stream<String>
+                                        +calculateHash(): String
+                                        +hashCode(): int
+                                        +equals(Object obj)
+                                    }
+                                    class Query{
+                                        -queryText: String
+                                        +query(String queryText, Stream<String> stopwords)
+                                        +getScore(Document document): double
+                                        }
+                                    class TextUnit{
+                                        -textContent: Map<String, Integer>
+                                        +TextUnit()
+                                        +setTextContent(Stream<String> words, Stream<String> stopwords): void
+                                        +getTextContent(): Map<String, Integer>
+                                    }
+                                    class Vocabulary{
+                                        -vocabulary: HashMap<String, Integer>
+                                        -stopwords: HashSet<String>
+                                        -index: int
+                                        +Vocabulary()
+                                        +Vocabulary(File stopwordsFile)
+                                        +addWordToVocabulary(String word): void
+                                        +getWordIndex(String word): int
+                                        +loadStopwords() : HashSet<String>
+                                        +loadStopwords(File stopwordsFile): HashSet<String>
+                                        -loadStopwordsResource(Stream<String> stream): HashSet<String>
+                                        +getStopwordsStream(): Stream<String>
+                                        +isStopWord(String s): boolean
+                                    }
+                                    TextUnit<|-- Document
+                                    TextUnit<|-- Query
+                                }
+
+
+                            package gui {
+                                class HelloApplication {
+                                    +start(Stage stage): void
+                                    +{static} main(String[] args): void
+                                }
+                                class HelloController {
+                                            -stackPane: StackPane
+                                            -vbox1: VBox
+                                            -vbox2: VBox
+                                            -vbox3: VBox
+                                            -vbox4: VBox
+                                            -vbox5: VBox
+                                            -directoryButton: Button
+                                            -goToViewButt: Button
+                                            -buttonSearch: Button
+                                            -changeDirectoryButton: Button
+                                            -changeDirectoryButton2: Button
+                                            -textFieldSearch: TextField
+                                            -textFieldSearch2:  TextField
+                                            -textQuery: Text
+                                            -textQuery2: Text
+                                            +initialize(): void
+                                            +handleSelectFolder(): void
+                                            -showLoadingScreen(): void
+                                            -hideLoadingScreen(): void
+                                            -switchToList(): void
+                                            -switchToList2(): void
+                                            -changeDirectory(): void
+                                }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@enduml
